@@ -1,0 +1,8 @@
+.vid {
+  display: inline-block;
+}
+
+label:focus,
+button:focus {
+  border-color: red;
+}
