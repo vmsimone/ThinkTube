@@ -18,6 +18,7 @@ function getData(searchTerm, callback) {
 
 function organizeData(data) {
   console.log('Data organizer running...');
+  $('.results').append(`<h2>Here you go:</h2>`);
   const thumbnailInfo = data.items.map((obj, index) => renderThumbnails(obj));
   console.log('finished');
   $('.results').append(thumbnailInfo);
@@ -26,8 +27,6 @@ function organizeData(data) {
 function renderThumbnails(JSON_Object) {
   let thumbImg = JSON_Object.snippet.thumbnails.medium.url;
   let thumbLink = `https://www.youtube.com/watch?v=${JSON_Object.id.videoId}`;
-  console.log(`
-  `);
   return `
   <div class="vid">
     <a href="${thumbLink}" target="_blank">
@@ -36,9 +35,14 @@ function renderThumbnails(JSON_Object) {
   </div>`;
 }
 
+function clearSearch() {
+  $('.results').html('');
+}
+
 function readySearch() {
   $('.js-srch').submit(event => {
     event.preventDefault();
+    clearSearch();
     const input = $(event.currentTarget).find('.js-input');
     const query = input.val();
     input.val('');

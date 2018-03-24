@@ -1,8 +1,11 @@
 .vid {
   display: inline-block;
+  padding: 10px;
 }
 
-label:focus,
-button:focus {
-  border-color: red;
+.vid a:hover,
+.vid a:focus,
+.js-srch input:focus
+.js-srch button:focus {
+  margin-color: red;
 }
